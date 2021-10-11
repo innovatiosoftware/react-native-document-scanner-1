@@ -118,6 +118,8 @@ class DocumentScanner extends Component {
    * Check if point can move to the given position
    */
   _isPointCanMove = (pointIndex, moveX, moveY) => {
+    //added by edxe to allow user to move the croping points freely
+     return true;
     const { layout, points } = this.state;
 
     // current point must be at a minimum distance of point container size
@@ -363,7 +365,7 @@ class DocumentScanner extends Component {
 const IMAGE_CROPPER_POINT_CONTAINER_SIZE = 40;
 const IMAGE_CROPPER_POINT_SIZE = 20;
 
-const CROPPER_COLOR = "#0082CA";
+const CROPPER_COLOR = "rgba(71,241,23,0.88)";
 
 const ZOOM_CONTAINER_SIZE = 120;
 const ZOOM_CONTAINER_BORDER_WIDTH = 2;
@@ -381,9 +383,9 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     position: "absolute",
     bottom: 40,
-    width: 60,
-    height: 60,
-    borderRadius: 30,
+    width: 80,
+    height: 80,
+    borderRadius: 40,
     backgroundColor: "white",
     borderWidth: 5,
     borderColor: "#c2c2c2",
