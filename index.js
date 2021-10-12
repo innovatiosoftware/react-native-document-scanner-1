@@ -118,8 +118,7 @@ class DocumentScanner extends Component {
    * Check if point can move to the given position
    */
   _isPointCanMove = (pointIndex, moveX, moveY) => {
-    //added by edxe to allow user to move the croping points freely
-     return true;
+    return true;
     const { layout, points } = this.state;
 
     // current point must be at a minimum distance of point container size
@@ -229,6 +228,7 @@ class DocumentScanner extends Component {
 
     // capture photo
     const options = {
+      quality:Platform.OS === "ios" ? 0.05 : 0.5,
       base64: false,
       fixOrientation: true,
       pauseAfterCapture: true,
@@ -342,6 +342,7 @@ class DocumentScanner extends Component {
                 {
                   width: containerWidth,
                   height: containerHeight,
+
                 },
                 zoomOnPoint !== null
                   ? this._getImageZoomStyleForCurrentHoldingPoint()
@@ -363,13 +364,13 @@ class DocumentScanner extends Component {
 }
 
 const IMAGE_CROPPER_POINT_CONTAINER_SIZE = 40;
-const IMAGE_CROPPER_POINT_SIZE = 20;
+const IMAGE_CROPPER_POINT_SIZE = 10;
 
 const CROPPER_COLOR = "rgba(71,241,23,0.88)";
 
 const ZOOM_CONTAINER_SIZE = 120;
 const ZOOM_CONTAINER_BORDER_WIDTH = 2;
-const ZOOM_CURSOR_SIZE = 10;
+const ZOOM_CURSOR_SIZE = 20;
 const ZOOM_CURSOR_BORDER_SIZE = 1;
 
 const styles = StyleSheet.create({
@@ -406,7 +407,7 @@ const styles = StyleSheet.create({
     height: IMAGE_CROPPER_POINT_SIZE,
     borderRadius: IMAGE_CROPPER_POINT_SIZE / 2,
     backgroundColor: "rgba(255, 255, 255, 0.4)",
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: CROPPER_COLOR,
   },
   imageCropperPolygonContainer: {
@@ -418,8 +419,8 @@ const styles = StyleSheet.create({
   },
   zoomContainer: {
     position: "absolute",
-    top: 0,
-    left: 0,
+    top: 100,
+    left: '40%',
     width: ZOOM_CONTAINER_SIZE,
     height: ZOOM_CONTAINER_SIZE,
     borderRadius: ZOOM_CONTAINER_SIZE / 2,
