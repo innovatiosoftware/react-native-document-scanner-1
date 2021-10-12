@@ -228,7 +228,7 @@ class DocumentScanner extends Component {
 
     // capture photo
     const options = {
-      quality:Platform.OS === "ios" ? 0.05 : 0.5,
+      quality:Platform.OS === "ios" ? 0.04 : 0.4,
       base64: false,
       fixOrientation: true,
       pauseAfterCapture: true,
@@ -364,13 +364,13 @@ class DocumentScanner extends Component {
 }
 
 const IMAGE_CROPPER_POINT_CONTAINER_SIZE = 40;
-const IMAGE_CROPPER_POINT_SIZE = 10;
+const IMAGE_CROPPER_POINT_SIZE = 20;
 
 const CROPPER_COLOR = "rgba(71,241,23,0.88)";
 
 const ZOOM_CONTAINER_SIZE = 120;
 const ZOOM_CONTAINER_BORDER_WIDTH = 2;
-const ZOOM_CURSOR_SIZE = 20;
+const ZOOM_CURSOR_SIZE = 10;
 const ZOOM_CURSOR_BORDER_SIZE = 1;
 
 const styles = StyleSheet.create({
